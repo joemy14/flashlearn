@@ -1,12 +1,11 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { initializeAuth, getReactNativePersistence, getAuth } from 'firebase/auth';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
+import { initializeAuth, getReactNativePersistence, getAuth } from "firebase/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Platform } from "react-native";
 
-// Your web app's Firebase configuration
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBkHQ_uMWfy2M3_iB9iqZZxw0MFORjC5w0",
   authDomain: "flashlearn-7d777.firebaseapp.com",
@@ -17,16 +16,19 @@ const firebaseConfig = {
   measurementId: "G-YHT6TFXZ23"
 };
 
-// Initialize Firebase
+// Init app
 const app = initializeApp(firebaseConfig);
+
+// Firestore + Storage
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// Use Platform detection so Web Browser uses standard web persistence, while iOS/Android uses React Native's AsyncStorage.
-const auth = Platform.OS === 'web' 
-  ? getAuth(app) 
-  : initializeAuth(app, {
-      persistence: getReactNativePersistence(AsyncStorage)
-    });
+// Auth (web vs native fix)
+const auth =
+  Platform.OS === "web"
+    ? getAuth(app)
+    : initializeAuth(app, {
+        persistence: getReactNativePersistence(AsyncStorage),
+      });
 
 export { app, db, auth, storage };

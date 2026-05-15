@@ -60,8 +60,7 @@ export default function TabLayout() {
       />
       <Tabs.Screen 
         name="quiz" 
-        options={{ 
-          href: null,
+        options={{
           title: 'PRACTICE', 
           tabBarIcon: ({ focused }) => <TabIcon name="school" focused={focused} /> 
         }} 

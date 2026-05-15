@@ -4,10 +4,11 @@
     "strict": true,
     "paths": {
       "@/*": [
-        "./*"
+        "../*"
       ]
     }
   },
+  "ignoreDepcrecations": "6.0",
   "include": [
     "**/*.ts",
     "**/*.tsx",
