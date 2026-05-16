@@ -1,7 +1,7 @@
 export class GeminiService {
   // TODO: Insert your Gemini API Key here
   private static API_KEY = 'AIzaSyDdZZ7wOZOUkCDNZ1mBy5AbWqblsn-dmnM';
-  private static BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+  private static BASE_URL = '';
 
   /**
    * Generates a structural JSON quiz based on a given topic using Google's Gemini API.
